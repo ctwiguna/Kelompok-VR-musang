@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Represents an object that can be highlighted and interacted with by raycast.
+/// Represents an object that can be highlighted and interacted with by raycast, only after trigger zone is unlocked.
 /// </summary>
 public class RaycastTargetObject : MonoBehaviour, IInteractable
 {
@@ -14,7 +14,6 @@ public class RaycastTargetObject : MonoBehaviour, IInteractable
     [SerializeField] private Color _interactedColor = Color.green;
 
     [Header("Controller Hub Reference")]
-    // Kita buat kolom manual agar bisa di-drag dari objek mana pun di Hierarchy
     [SerializeField] private BonekaController _bonekaController;
 
     private bool isInteracted;
@@ -30,10 +29,17 @@ public class RaycastTargetObject : MonoBehaviour, IInteractable
     }
 
     /// <summary>
-    /// Changes the visual state when the object is looked at by raycast.
+    /// Changes the visual state when the object is looked at by raycast (Only works if zone is unlocked).
     /// </summary>
     public void SetLookedAt(bool isLookedAt)
     {
+        // JIKA ZONE BELUM DILEWATI/DILETAK, JANGAN LAKUKAN HOVER EFFECT
+        if (!TriggerZonePractice.IsZoneUnlocked)
+        {
+            SetColor(_normalColor); // Pastikan warna tetap normal
+            return;
+        }
+
         if (isInteracted)
         {
             return;
@@ -43,23 +49,21 @@ public class RaycastTargetObject : MonoBehaviour, IInteractable
     }
 
     /// <summary>
-    /// Applies the interaction effect to this object.
+    /// Applies the interaction effect to this object (Only works if zone is unlocked).
     /// </summary>
     public void Interact()
     {
+        // JIKA ZONE BELUM DILEWATI, TOMBOL E TIDAK AKAN BEKERJA
+        if (!TriggerZonePractice.IsZoneUnlocked) return;
         if (isInteracted) return;
 
         isInteracted = true;
         SetColor(_interactedColor);
         Debug.Log(gameObject.name + " interacted");
 
-        // Membuka gerbang interaksi pada script BonekaController pusat
         if (_bonekaController != null)
         {
             _bonekaController.AktifkanInteraksi();
-            
-            // Mengingat BonekaController bawaan kamu masih butuh mendeteksi tombol E di Update()-nya,
-            // kita picu juga fungsi menarinya secara tidak langsung di sini agar berjalan instan saat E ditekan pada kamera.
         }
         else
         {
