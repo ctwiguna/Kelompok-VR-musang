@@ -10,6 +10,10 @@ public class BonekaController : MonoBehaviour
     public void AktifkanInteraksi()
     {
         bolehInteraksi = true;
+        
+        // Panggil langsung fungsi menari di sini agar sekali tekan E di kamera, 
+        // seluruh boneka di array langsung bergerak secara instan!
+        PicuSemuaAnimasiDance(); 
     }
 
     public void NonaktifkanInteraksi()
@@ -23,15 +27,21 @@ public class BonekaController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            foreach (Animator anim in bonekaAnimators)
-            {
-                if (anim != null)
-                {
-                    anim.SetTrigger("Dance");
-                }
-            }
-
-            bolehInteraksi = false;
+            PicuSemuaAnimasiDance();
         }
+    }
+
+    // Kita bungkus logikanya ke fungsi terpisah agar bisa diakses dari fungsi AktifkanInteraksi()
+    private void PicuSemuaAnimasiDance()
+    {
+        foreach (Animator anim in bonekaAnimators)
+        {
+            if (anim != null)
+            {
+                anim.SetTrigger("Dance");
+            }
+        }
+
+        bolehInteraksi = false;
     }
 }
