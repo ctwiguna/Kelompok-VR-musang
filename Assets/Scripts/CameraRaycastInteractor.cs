@@ -96,7 +96,7 @@ public class CameraRaycastInteractor : MonoBehaviour
             currentTarget = null;
         }
 
-        SetStatus("Look at an object");
+        // SetStatus("Look at an object");
     }
 
     private void SetStatus(string message)
