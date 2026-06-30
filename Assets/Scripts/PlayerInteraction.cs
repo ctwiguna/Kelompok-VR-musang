@@ -20,9 +20,10 @@ public class PlayerInteraction : MonoBehaviour
             // Mengambil komponen secara dinamis yang menggunakan interface IInteractable
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
-            if (interactable != null)
+            // TAMBAHKAN PENGECEKAN: Hanya jalan jika objek memiliki IInteractable DAN Zone sudah di-unlock
+            if (interactable != null && TriggerZonePractice.IsZoneUnlocked)
             {
-                // Munculkan tulisan UI karena objek bisa diinteraksi
+                // Munculkan tulisan UI karena objek bisa diinteraksi dan zone sudah terbuka
                 interactionUI.SetActive(true);
 
                 // Jika pemain menekan tombol E
@@ -34,7 +35,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                // Jika melihat objek biasa (bukan interactable), sembunyikan UI
+                // Jika melihat objek biasa ATAU zone belum di-unlock, sembunyikan UI
                 SembunyikanUI();
             }
         }
