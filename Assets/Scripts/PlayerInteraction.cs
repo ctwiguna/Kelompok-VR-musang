@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Raycast Settings")]
-    public float interactDistance = 3f; // Jarak maksimum interaksi
+    public float interactDistance = 3f;
 
     [Header("UI Reference")]
-    public GameObject interactionUI;    // Objek Text Canvas "Press E"
+    public GameObject interactionUI;
 
     void Update()
     {
