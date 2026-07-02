@@ -12,12 +12,34 @@ public class TicketInteraction : MonoBehaviour, IInteractable
     [SerializeField] private Transform handHoldPoint; 
     [SerializeField] private Vector3 paksaSkalaTiket = new Vector3(1f, 1f, 1f);
 
+    private Camera mainCamera;
     private bool hasTicket = false;
 
     private void Start()
     {
-        if (promptUI != null) promptUI.SetActive(false);
+        mainCamera = Camera.main;
+
+        // PERBAIKAN UTAMA: Kita biarkan posisi dan skala persis seperti yang Anda atur manual di Editor.
+        // Script hanya memastikan UI mati di awal game.
+        if (promptUI != null) 
+        {
+            promptUI.SetActive(false);
+        }
+        
         UpdateStatus("Cari Loket Tiket");
+    }
+
+    private void Update()
+    {
+        // Membuat World Canvas selalu berputar menghadap ke mata Player secara presisi
+        if (promptUI != null && promptUI.activeSelf && mainCamera != null)
+        {
+            promptUI.transform.LookAt(promptUI.transform.position + mainCamera.transform.rotation * Vector3.forward,
+                                      mainCamera.transform.rotation * Vector3.up);
+            
+            // Memutar balik 180 derajat pada sumbu Y lokal agar TextMeshPro tidak terbalik cermin
+            promptUI.transform.Rotate(0, 0, 0);
+        }
     }
 
     // Dipicu langsung oleh PlayerInteraction saat tombol E ditekan
