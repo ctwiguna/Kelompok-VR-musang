@@ -1,12 +1,8 @@
 using UnityEngine;
 using TMPro;
 
-public class TicketInteraction : MonoBehaviour
+public class TicketInteraction : MonoBehaviour, IInteractable
 {
-    [Header("Raycast Settings")]
-    [SerializeField] private float interactDistance = 3f;
-    [SerializeField] private string targetTag = "TicketBooth"; 
-
     [Header("UI Reference")]
     [SerializeField] private GameObject promptUI;
     [SerializeField] private TextMeshProUGUI statusText;
@@ -16,38 +12,26 @@ public class TicketInteraction : MonoBehaviour
     [SerializeField] private Transform handHoldPoint; 
     [SerializeField] private Vector3 paksaSkalaTiket = new Vector3(1f, 1f, 1f);
 
-    private Camera mainCamera;
     private bool hasTicket = false;
 
     private void Start()
     {
-        mainCamera = Camera.main;
         if (promptUI != null) promptUI.SetActive(false);
         UpdateStatus("Cari Loket Tiket");
     }
 
-    private void Update()
+    // Dipicu langsung oleh PlayerInteraction saat tombol E ditekan
+    public void Interact()
     {
-        if (hasTicket) return; 
+        if (hasTicket) return;
+        TakeTicket();
+    }
 
-        Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, interactDistance))
-        {
-            if (hit.collider.CompareTag(targetTag))
-            {
-                if (promptUI != null) promptUI.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    TakeTicket();
-                }
-                return;
-            }
-        }
-        
-        if (promptUI != null) promptUI.SetActive(false);
+    // Mengizinkan script PlayerInteraction untuk menyalakan/mematikan UI bawaan tiket ini
+    public void SetPromptActive(bool active)
+    {
+        if (hasTicket) return;
+        if (promptUI != null) promptUI.SetActive(active);
     }
 
     private void TakeTicket()
@@ -58,26 +42,19 @@ public class TicketInteraction : MonoBehaviour
 
         if (ticketPrefab != null && handHoldPoint != null)
         {
-            // 1. Spawn tiket
             GameObject spawnedTicket = Instantiate(ticketPrefab, handHoldPoint);
             
-            // 2. Set skala dan rotasi awal
             spawnedTicket.transform.localRotation = Quaternion.identity;
             spawnedTicket.transform.localScale = paksaSkalaTiket;
             spawnedTicket.transform.localPosition = Vector3.zero;
 
-            // 3. LOGIKA ADAPTASI: Hitung otomatis posisi tengah berdasarkan bentuk 3D-nya
             MeshRenderer meshRenderer = spawnedTicket.GetComponentInChildren<MeshRenderer>();
             if (meshRenderer != null)
             {
-                // Menghitung jarak antara titik pusat (pivot) palsu bawaan asset dengan pusat fisik aslinya
                 Vector3 centerOffset = spawnedTicket.transform.InverseTransformPoint(meshRenderer.bounds.center);
-                
-                // Paksa posisi bergeser kebalikan dari offset tersebut agar posisinya auto-center!
                 spawnedTicket.transform.localPosition = -centerOffset;
             }
 
-            // 4. Matikan komponen fisik agar tidak jatuh
             if (spawnedTicket.TryGetComponent<Rigidbody>(out Rigidbody rb)) rb.isKinematic = true;
             if (spawnedTicket.TryGetComponent<Collider>(out Collider col)) col.enabled = false;
             
