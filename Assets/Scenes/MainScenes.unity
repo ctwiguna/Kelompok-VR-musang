@@ -1280,8 +1280,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4439213, y: 2, z: 1.1828573}
-  m_Center: {x: -0.27803934, y: -4.3293853e-15, z: 1.6953461}
+  m_Size: {x: 1.1744692, y: 2, z: 1.1828573}
+  m_Center: {x: -0.14331329, y: -4.3293853e-15, z: 1.6953461}
 --- !u!1 &698888427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2029,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90f7133b0666f8b468813348320867dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1974045640}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90f7133b0666f8b468813348320867dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1974045642}
   m_SourcePrefab: {fileID: 100100000, guid: 90f7133b0666f8b468813348320867dd, type: 3}
 --- !u!1 &1290959669
 GameObject:
@@ -2158,6 +2161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   interactDistance: 3
   interactionUI: {fileID: 310510393}
+  hoverTargetColor: {r: 0, g: 1, b: 0, a: 1}
+  tintStrength: 0.25
 --- !u!114 &1290959675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,8 +2175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d07a9bf4874c82cb5c604ef6244218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TicketInteraction
-  interactDistance: 3
-  targetTag: TicketBooth
   promptUI: {fileID: 1955684193}
   statusText: {fileID: 0}
   ticketPrefab: {fileID: 991989024}
@@ -2949,6 +2952,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2813194710930375321, guid: 62a6f599e52779bbc828668c419f2247, type: 3}
+      propertyPath: m_TagString
+      value: TicketBooth
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3386,6 +3393,55 @@ MonoBehaviour:
   _highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _interactedColor: {r: 0, g: 1, b: 0, a: 1}
   _bonekaController: {fileID: 867942094}
+--- !u!23 &1974045642
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974045634}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1976941725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,7 +3845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 90f7133b0666f8b468813348320867dd, type: 3}
       propertyPath: m_Name
-      value: GOLD_WARRIOR (1)
+      value: GOLD_WARRIOR (Push)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 90f7133b0666f8b468813348320867dd, type: 3}
       propertyPath: m_TagString

@@ -1,8 +1,13 @@
 using UnityEngine;
 
-public class PushObject : MonoBehaviour
+public class PushObject : MonoBehaviour, IInteractable
 {
     public float pushForce = 500f; // Kekuatan dorongan
+
+    public void Interact()
+    {
+
+    }
 
     void Update()
     {
@@ -22,10 +27,10 @@ public class PushObject : MonoBehaviour
                 if (rb != null)
                 {
                     // Menghitung arah dorongan (menjauhi kamera/searah arah pandang kamera)
-                   Vector3 pushDirection = Camera.main.transform.forward;
-                    
+                    Vector3 pushDirection = Camera.main.transform.forward;
+
                     // Menghilangkan efek vertikal agar dorongan lebih stabil di lantai
-                    pushDirection.y = 0; 
+                    pushDirection.y = 0;
                     pushDirection.Normalize();
 
                     // Memberikan gaya dorong ke Rigidbody
