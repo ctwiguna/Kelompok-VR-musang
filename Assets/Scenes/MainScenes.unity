@@ -2163,6 +2163,7 @@ MonoBehaviour:
   interactionUI: {fileID: 310510393}
   hoverTargetColor: {r: 0, g: 1, b: 0, a: 1}
   tintStrength: 0.25
+  loketGlowMaterial: {fileID: 2100000, guid: 28d49623da09548ec908f76b3337e0e3, type: 2}
 --- !u!114 &1290959675
 MonoBehaviour:
   m_ObjectHideFlags: 0
