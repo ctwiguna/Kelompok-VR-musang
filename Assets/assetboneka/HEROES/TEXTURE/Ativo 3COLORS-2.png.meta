@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 6a87878c13051ab4892163d6b14eb91e
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315151
+  packageName: HEROES PACK
+  packageVersion: 1.0
+  assetPath: Assets/HEROES/TEXTURE/Ativo 3COLORS-2.png
+  uploadId: 743588
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +76,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -128,10 +135,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 315151
-  packageName: HEROES PACK
-  packageVersion: 1.0
-  assetPath: Assets/HEROES/TEXTURE/Ativo 3COLORS-2.png
-  uploadId: 743588
