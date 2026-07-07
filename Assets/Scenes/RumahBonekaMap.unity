@@ -227,8 +227,6 @@ MonoBehaviour:
   sensitivitasMouse: 100
   batasAtas: -60
   batasBawah: 60
-  rotasiX: 0
-  rotasiY: 0
 --- !u!1 &242919482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,19 +1221,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: -0.48741108
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: 0.48741108
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0.5122797
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: 0.5122797
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1243,7 +1241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 267.15
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: df4c58a9ab3c2944dbba02f82df9df6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1404,7 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WahanaController
   jalurSpline: {fileID: 311216192}
   kecepatanMaju: 10
-  offsetY: 0.5
+  offsetY: 50
 --- !u!1 &1715629544
 GameObject:
   m_ObjectHideFlags: 0
