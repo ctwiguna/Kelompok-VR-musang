@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Splines; // Wajib diimport untuk mendeteksi fitur Spline
+using UnityEngine.Splines;
 
-// "public class WahanaController : MonoBehaviour" artinya script ini adalah MonoBehaviour
 public class WahanaController : MonoBehaviour
 {
     [Header("Referensi Jalur")]
@@ -10,9 +9,12 @@ public class WahanaController : MonoBehaviour
     [Header("Pengaturan Kecepatan")]
     [SerializeField] private float kecepatanMaju = 2.0f;
 
+    [Header("Pengaturan Posisi Rel")]
+    [Tooltip("Gunakan ini untuk menaikkan kereta agar tidak ambles ke bawah rel")]
+    [SerializeField] private float offsetY = 0.5f; // Ubah angka ini di Inspector sesuai tinggi kereta
+
     private float progress = 0f;
 
-    // Fungsi Update berjalan otomatis setiap frame karena script ini MonoBehaviour
     void Update()
     {
         if (jalurSpline == null) return;
@@ -25,8 +27,14 @@ public class WahanaController : MonoBehaviour
             progress = 0f; 
         }
 
-        // MonoBehaviour mengizinkan kita langsung mengubah posisi objek lewat 'transform'
-        transform.position = (Vector3)jalurSpline.EvaluatePosition(progress);
+        // 1. Ambil posisi asli dari titik Spline
+        Vector3 posisiSpline = (Vector3)jalurSpline.EvaluatePosition(progress);
+
+        // 2. Tambahkan posisi tinggi (Y) berdasarkan nilai Offset agar berada di atas rel
+        posisiSpline.y += offsetY;
+
+        // 3. Terapkan posisi baru ke kereta
+        transform.position = posisiSpline;
         transform.forward = (Vector3)jalurSpline.EvaluateTangent(progress);
     }
 }
