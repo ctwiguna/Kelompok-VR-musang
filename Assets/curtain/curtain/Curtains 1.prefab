@@ -100,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 8535133971147982272, guid: 21f5dde4210b74f58bb74fbb9ddfa8c6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1479bde96dda04644987e702d097e5e7, type: 2}
+      objectReference: {fileID: 2100000, guid: 6252e9c83d7fc46919c01b94b10010ca, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119,6 +119,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8099903851880583625}
     m_Modifications:
+    - target: {fileID: 3276851669107790260, guid: 244fa0d2e24344f57beb5c982fdf3d33, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6252e9c83d7fc46919c01b94b10010ca, type: 2}
     - target: {fileID: 6325936566778259749, guid: 244fa0d2e24344f57beb5c982fdf3d33, type: 3}
       propertyPath: m_Name
       value: uploads_files_2642930_Curtain-R2-Obj
