@@ -12821,6 +12821,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1347795753196355154, guid: 978e249ef23b645029d1c7a0ddb0deea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1479bde96dda04644987e702d097e5e7, type: 2}
     - target: {fileID: 4384328583008151046, guid: 978e249ef23b645029d1c7a0ddb0deea, type: 3}
       propertyPath: m_Name
       value: Curtains 1
@@ -12829,6 +12833,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6549731629852556554, guid: 978e249ef23b645029d1c7a0ddb0deea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1479bde96dda04644987e702d097e5e7, type: 2}
     - target: {fileID: 8099903851880583625, guid: 978e249ef23b645029d1c7a0ddb0deea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.009445
