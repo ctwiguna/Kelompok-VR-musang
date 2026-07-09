@@ -4391,12 +4391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d809c0272157f74ba1deb4570ab2142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerZonePractice
-  requireTicket: 1
-  statusText: {fileID: 0}
+  _statusText: {fileID: 497366982}
   barrierObject: {fileID: 663705477}
-  targetSceneName: RumahBonekaMap
-  instantTeleport: 0
-  teleportDelay: 1.5
+  targetSceneName: 
 --- !u!65 &1241884292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4416,7 +4413,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.16, y: 1.46, z: 1.72}
+  m_Size: {x: 1.16, y: 3.68, z: 1.72}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1241884293
 MeshRenderer:
